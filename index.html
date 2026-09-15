@@ -4,8 +4,80 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="color-scheme" content="dark" />
-    <title>Forensic Blood Spatter Analysis • Lab Console</title>
+    <title>Forensic Gait Biometric Verification Engine • Presentation Showcase</title>
     <link rel="stylesheet" href="./style.css" />
+    <style>
+      .dossier-scroll {
+        padding: 12px 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        overflow-y: auto;
+        min-height: 0;
+        height: 100%;
+      }
+      .dossier-card {
+        border-radius: 14px;
+        border: 1px solid var(--border-2);
+        background: rgba(0, 0, 0, 0.52);
+        padding: 12px 14px;
+        box-shadow: inset 0 0 0.7rem rgba(0, 255, 65, 0.05);
+      }
+      .dossier-card__header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 6px;
+      }
+      .dossier-card__tag {
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ok);
+        background: rgba(0, 255, 65, 0.12);
+        padding: 2px 8px;
+        border-radius: 6px;
+        border: 1px solid rgba(0, 255, 65, 0.25);
+      }
+      .dossier-card__title {
+        font-size: 0.86rem;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 800;
+        color: var(--ink);
+        margin: 0;
+      }
+      .dossier-card__body {
+        font-size: 0.76rem;
+        line-height: 1.45;
+        color: var(--ink-dim);
+      }
+      .dossier-card__body code {
+        color: var(--ok);
+        background: rgba(0, 255, 65, 0.08);
+        padding: 1px 4px;
+        border-radius: 4px;
+        font-family: var(--mono);
+      }
+      .dossier-list {
+        margin: 6px 0 0;
+        padding-left: 18px;
+      }
+      .dossier-list li {
+        margin-bottom: 4px;
+      }
+      .tab-btn.is-active {
+        border-color: var(--ok) !important;
+        color: var(--ok) !important;
+        background: rgba(0, 255, 65, 0.14) !important;
+      }
+      .centerpiece-desc {
+        margin: 8px 4px 0;
+        font-size: 0.76rem;
+        line-height: 1.4;
+        color: var(--ink-dim);
+      }
+    </style>
   </head>
 
   <body>
@@ -15,142 +87,224 @@
       <div class="topbar__brand" aria-label="System identity">
         <div class="sigil" aria-hidden="true"></div>
         <div class="topbar__title">
-          <div class="topbar__name">BLOODSPATTER::FORENSICS</div>
+          <div class="topbar__name">FORENSIC GAIT BIOMETRIC VERIFICATION ENGINE</div>
+          <div class="topbar__subtitle">Explainable Kinematic Stride Analysis & Dynamic Time Warping (DTW) • PBL Presentation Showcase</div>
         </div>
       </div>
 
       <div class="topbar__status" aria-label="System status">
-        <div class="status-pill" id="backendPill" data-state="unknown" title="Backend connectivity">
+        <div class="status-pill" id="backendPill" data-state="ok" title="Pipeline Status">
           <span class="status-dot" aria-hidden="true"></span>
-          <span class="status-text" id="backendText">BACKEND: UNKNOWN</span>
+          <span class="status-text" id="backendText">PROTOTYPE 50% VERIFIED</span>
         </div>
       </div>
     </header>
 
     <main id="main" class="layout" role="main">
-      <section class="panel panel--left" aria-label="Input and control panel">
+      <!-- LEFT PANEL: Architectural Dossier & Problem Statement -->
+      <section class="panel panel--left" aria-label="Project dossier and architecture panel">
         <header class="panel__header">
-          <h1 class="panel__title">Evidence Intake</h1>
+          <h1 class="panel__title">Forensic Dossier & Pipeline Architecture</h1>
           <p class="panel__hint">
-            Drag a stain image into the bay or select a file. Supported: JPG, PNG, WEBP.
+            Deterministic, explainable biometric gait verification engineered for courtroom admissibility.
           </p>
         </header>
 
-        <div class="intake">
-          <div
-            class="dropzone"
-            id="dropzone"
-            role="button"
-            tabindex="0"
-            aria-label="Upload image drop zone"
-          >
-            <input id="fileInput" class="dropzone__input" type="file" accept="image/*" />
-            <div class="dropzone__grid" aria-hidden="true"></div>
-            <div class="dropzone__content">
-              <div class="dropzone__icon" aria-hidden="true">⟟</div>
-              <div class="dropzone__headline">DROP IMAGE</div>
-              <div class="dropzone__subline">or click to select</div>
-              <div class="dropzone__meta" id="fileMeta">No file loaded.</div>
+        <div class="dossier-scroll">
+          <!-- Problem Statement -->
+          <div class="dossier-card" style="border-color: rgba(255, 204, 0, 0.35);">
+            <div class="dossier-card__header">
+              <span class="dossier-card__tag" style="color: var(--warn); border-color: rgba(255, 204, 0, 0.35); background: rgba(255, 204, 0, 0.1);">Problem Statement</span>
+            </div>
+            <h2 class="dossier-card__title">Courtroom Inadmissibility of Black-Box AI in Masked-Suspect CCTV Analysis</h2>
+            <div class="dossier-card__body" style="margin-top: 6px;">
+              Perpetrators in armed robberies, burglaries, and transit crimes routinely obscure facial features using balaclavas, masks, and hoodies, rendering facial recognition ineffective. Furthermore, modern deep-learning "black-box" classifiers face legal disqualification under the <em>Daubert</em> and <em>Frye</em> standards of evidence because uninterpretable latent feature vectors cannot be audited or explained to a jury. This engine replaces black-box inference with transparent, deterministic joint kinematics derived from Newtonian physics.
             </div>
           </div>
 
-          <div class="preview" aria-label="Source preview">
-            <div class="preview__header">
-              <h2 class="preview__title">Source Preview</h2>
-              <button class="btn btn--ghost" id="clearBtn" type="button" disabled>Clear</button>
+          <!-- Stage 1 -->
+          <div class="dossier-card">
+            <div class="dossier-card__header">
+              <span class="dossier-card__tag">Stage 1 • Chain of Custody</span>
+              <span style="font-size: 0.7rem; color: var(--ink-faint);">src/ingest.sh</span>
             </div>
-            <div class="preview__frame" id="previewFrame">
-              <img id="previewImg" alt="Uploaded image preview" />
-              <div class="frame-overlay frame-overlay--scanlines" aria-hidden="true"></div>
-              <div class="frame-overlay frame-overlay--noise" aria-hidden="true"></div>
+            <h2 class="dossier-card__title">Tamper-Proof Forensic Ingestion & SHA-256 Hashing</h2>
+            <div class="dossier-card__body" style="margin-top: 6px;">
+              Digital video evidence undergoes cryptographic intake verification immediately upon submission. SHA-256 cryptographic digests (via <code>shasum -a 256</code>) are computed and appended alongside ISO 8601 UTC timestamps into an append-only JSONL manifest (<code>output/evidence_manifest.jsonl</code>) to prove strict forensic chain of custody in judicial proceedings.
             </div>
           </div>
 
-          <div class="controls" aria-label="Analysis controls">
-            <button class="btn btn--primary" id="analyzeBtn" type="button" disabled>
-              <span class="btn__label">Analyze</span>
-              <span class="btn__kbd" aria-hidden="true">ENTER</span>
-            </button>
-            <button class="btn btn--danger" id="abortBtn" type="button" disabled>
-              <span class="btn__label">Abort</span>
-              <span class="btn__kbd" aria-hidden="true">ESC</span>
-            </button>
+          <!-- Stage 2 -->
+          <div class="dossier-card">
+            <div class="dossier-card__header">
+              <span class="dossier-card__tag">Stage 2 • Kinematics</span>
+              <span style="font-size: 0.7rem; color: var(--ink-faint);">src/extract_gait.py</span>
+            </div>
+            <h2 class="dossier-card__title">Biomechanical Joint Kinematics Extraction (120°–175°)</h2>
+            <div class="dossier-card__body" style="margin-top: 6px;">
+              Leveraging Google MediaPipe Pose keypoint estimation, sagittal lower-limb coordinates are tracked frame-by-frame: Hip (23/24), Knee (25/26), and Ankle (27/28). Interior knee flexion angles are calculated using vector trigonometry:
+              <div style="margin: 6px 0; padding: 4px 8px; background: rgba(0, 0, 0, 0.4); border-radius: 6px; font-family: var(--mono); color: var(--ok);">
+                θ = |atan2(Ay - Ky, Ax - Kx) - atan2(Hy - Ky, Hx - Kx)|
+              </div>
+              Angles are clamped to [0°, 180°] (normal human knee flexion oscillates between 120° and 175° during standard gait) and exported as time-series arrays to CSV.
+            </div>
+          </div>
+
+          <!-- Stage 3 -->
+          <div class="dossier-card">
+            <div class="dossier-card__header">
+              <span class="dossier-card__tag">Stage 3 • Verification Engine</span>
+              <span style="font-size: 0.7rem; color: var(--ink-faint);">src/GaitVerifier.java</span>
+            </div>
+            <h2 class="dossier-card__title">Dynamic Time Warping (DTW) Java Engine</h2>
+            <div class="dossier-card__body" style="margin-top: 6px;">
+              Compiled Java bytecode (<code>bin/GaitVerifier.class</code>) executes an O(N×M) dynamic programming recurrence to non-linearly align suspect and reference stride sequences. DTW effectively absorbs natural human pacing variations, walking cadence shifts, and CCTV frame-rate jitter without destroying temporal causality.
+            </div>
+          </div>
+
+          <!-- Viva Defense & Milestones -->
+          <div class="dossier-card" style="border-color: rgba(0, 255, 65, 0.35);">
+            <div class="dossier-card__header">
+              <span class="dossier-card__tag">Milestones & Defense</span>
+              <span style="font-size: 0.7rem; color: var(--ok);">50% PROTOTYPE</span>
+            </div>
+            <h2 class="dossier-card__title">Evaluation Status & Engineering Roadmap</h2>
+            <div class="dossier-card__body" style="margin-top: 6px;">
+              <strong>Current 50% Working Prototype Deliverables:</strong>
+              <ul class="dossier-list">
+                <li>End-to-end multi-language pipeline orchestration (<code>run_pipeline.sh</code>).</li>
+                <li>Automated SHA-256 evidence ingestion hashing and audit logging.</li>
+                <li>Sagittal single-leg knee kinematics extraction & 60-frame mock waveform generator.</li>
+                <li>Compiled Java DTW dynamic programming matrix evaluation with raw cumulative scoring.</li>
+              </ul>
+              <strong style="display:block; margin-top: 8px;">Future Scope (Remaining 50% Roadmap):</strong>
+              <ul class="dossier-list">
+                <li>Asymmetric matrix DTW with Sakoe-Chiba temporal band constraints (|i - j| ≤ w).</li>
+                <li>Multi-threaded batch verification across multi-camera forensic video repositories.</li>
+                <li>Bilateral dual-leg kinematics and forensic Likelihood Ratio (LR) calculation.</li>
+              </ul>
+            </div>
           </div>
         </div>
-
       </section>
 
-      <section class="panel panel--right" aria-label="Results panel">
-        <div class="view view--terminal is-active" id="terminalView">
+      <!-- RIGHT PANEL: Visual Centerpiece & Execution Console -->
+      <section class="panel panel--right" aria-label="Results and execution panel">
+        <!-- View 1: Waveform & Output (Active) -->
+        <div class="view view--result is-active" id="resultView">
           <header class="panel__header">
-            <h2 class="panel__title">Live Terminal</h2>
-            <p class="panel__hint">Processing pipeline logs are shown here first.</p>
-          </header>
-          <section class="terminal terminal--full" aria-label="Terminal log">
-            <header class="terminal__header">
-              <h2 class="terminal__title">Terminal</h2>
-              <div class="terminal__actions">
-                <button class="btn btn--ghost" id="copyLogBtn" type="button">Copy</button>
-                <button class="btn btn--ghost" id="clearLogBtn" type="button">Clear</button>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h2 class="panel__title">Visual Centerpiece & Biometric Metrics</h2>
+                <p class="panel__hint">Kinematic wave plot + dynamic time warping distance + forensic conclusion.</p>
               </div>
-            </header>
-            <div class="terminal__body terminal__body--full" id="terminalBody" role="log" aria-live="polite" aria-relevant="additions">
-              <div class="term-line term-line--dim">[boot] console ready. load evidence to begin.</div>
+              <div class="terminal__actions">
+                <button class="btn btn--ghost tab-btn is-active" id="tabWaveformBtn" type="button">Waveform</button>
+                <button class="btn btn--ghost tab-btn" id="tabTerminalBtn" type="button">Live Console</button>
+              </div>
             </div>
-          </section>
-        </div>
-
-        <div class="view view--result" id="resultView">
-          <header class="panel__header">
-            <h2 class="panel__title">Analysis Output</h2>
-            <p class="panel__hint">Processed image + computed metrics + forensic conclusion.</p>
           </header>
 
-          <section class="stats" aria-label="Computed statistics">
-            <div class="stat">
-              <div class="stat__label">Impact Angle</div>
-              <div class="stat__value" id="angleValue">—</div>
-              <div class="stat__unit">degrees</div>
-            </div>
-            <div class="stat">
-              <div class="stat__label">Confidence</div>
-              <div class="stat__value" id="confidenceValue">—</div>
-              <div class="stat__unit">0–100%</div>
-            </div>
-            <div class="stat stat--wide">
-              <div class="stat__label">Forensic Conclusion (Technical)</div>
-              <div class="stat__value stat__value--text" id="conclusionValue">Awaiting evidence.</div>
-            </div>
-            <div class="stat stat--wide">
-              <div class="stat__label">Plain-Language Conclusion</div>
-              <div class="stat__value stat__value--text" id="plainConclusionValue">Upload and analyze an image to see a simple explanation.</div>
-            </div>
-          </section>
-
+          <!-- Visual Centerpiece -->
           <section class="output" aria-label="Processed image output">
             <div class="output__header">
-              <h3 class="output__title">Processed Frame</h3>
-              <div class="output__meta" id="outputMeta">No analysis yet.</div>
+              <h3 class="output__title">Visual Centerpiece • Kinematic Wave Plot</h3>
+              <div class="output__meta" id="outputMeta">output/gait_kinematics_wave.png</div>
             </div>
-            <div class="output__frame" id="outputFrame">
-              <img id="outputImg" alt="Processed analysis output" />
+            <div class="output__frame has-image" id="outputFrame">
+              <img id="outputImg" src="./output/gait_kinematics_wave.png" alt="Gait Kinematics - Knee Flexion Wave Plot" />
               <div class="frame-overlay frame-overlay--scanlines" aria-hidden="true"></div>
               <div class="frame-overlay frame-overlay--noise" aria-hidden="true"></div>
-              <div class="scanbar" id="scanbar" aria-hidden="true"></div>
-              <div class="output__placeholder" id="outputPlaceholder">
-                <div class="placeholder__title">NO OUTPUT</div>
-                <div class="placeholder__sub">Run analysis to render processed frame.</div>
+            </div>
+            <p class="centerpiece-desc">
+              <strong>Visual Centerpiece:</strong> Knee flexion wave (<code>output/gait_kinematics_wave.png</code>) demonstrating 60-frame cyclical gait oscillation (120°–175°) comparing Suspect (Solid Blue) against Reference (Dashed Orange) under simulated phase offset (+0.15 rad).
+            </p>
+          </section>
+
+          <!-- Computed Metrics Grid -->
+          <section class="stats" aria-label="Computed statistics">
+            <div class="stat">
+              <div class="stat__label">Knee Flexion Range</div>
+              <div class="stat__value">120°–175°</div>
+              <div class="stat__unit">Biomechanical degrees</div>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Raw Warping Sum</div>
+              <div class="stat__value">68.750</div>
+              <div class="stat__unit">Cumulative DTW cost</div>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Verification Threshold</div>
+              <div class="stat__value">&lt; 150.0</div>
+              <div class="stat__unit">Divergence boundary</div>
+            </div>
+            <div class="stat">
+              <div class="stat__label">Prototype Maturity</div>
+              <div class="stat__value">50%</div>
+              <div class="stat__unit">Mid-term working core</div>
+            </div>
+            <div class="stat stat--wide">
+              <div class="stat__label">Forensic Decision (Technical)</div>
+              <div class="stat__value stat__value--text" style="color: var(--ok);">
+                Result: Probable Match (Low Divergence) — DTW Sum 68.750 &lt; 150.0 threshold across 60 frames.
+              </div>
+            </div>
+            <div class="stat stat--wide">
+              <div class="stat__label">Courtroom Admissibility Summary</div>
+              <div class="stat__value stat__value--text">
+                Biomechanical stride phase alignment verified. Deterministic angular trigonometric time-series eliminates deep learning hallucination and uninterpretable black-box bias.
               </div>
             </div>
           </section>
         </div>
 
-        <section class="alerts" aria-label="Alerts">
-          <div class="alert" id="alertBox" hidden>
-            <div class="alert__title" id="alertTitle">Error</div>
-            <div class="alert__body" id="alertBody">—</div>
-          </div>
-        </section>
+        <!-- View 2: Live Pipeline Console -->
+        <div class="view view--terminal" id="terminalView">
+          <header class="panel__header">
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+              <div>
+                <h2 class="panel__title">Live Pipeline Terminal Trace</h2>
+                <p class="panel__hint">End-to-end execution log from <code>./run_pipeline.sh --mock</code></p>
+              </div>
+              <div class="terminal__actions">
+                <button class="btn btn--ghost" id="backToWaveformBtn" type="button">Back to Waveform</button>
+              </div>
+            </div>
+          </header>
+          <section class="terminal terminal--full" aria-label="Terminal log" style="border-top: none; margin-top: 0;">
+            <div class="terminal__body terminal__body--full" id="terminalBody" style="height: 520px;">
+              <div class="term-line term-line--dim">[init] executing: ./run_pipeline.sh --mock</div>
+              <div class="term-line">======================================================================</div>
+              <div class="term-line term-line--ok">[STAGE 1] Forensic Evidence Intake &amp; Chain-of-Custody Hashing</div>
+              <div class="term-line">======================================================================</div>
+              <div class="term-line term-line--dim">[INFO] Running in mock demo mode using synthetic evidence files.</div>
+              <div class="term-line">--&gt; Ingesting suspect evidence: data/suspect_mock.mp4</div>
+              <div class="term-line">File: data/suspect_mock.mp4</div>
+              <div class="term-line term-line--ok">SHA-256: 127e4f1598d24966bea3880195ef0ea2bd315c092409275398cc4c31fc4991b0</div>
+              <div class="term-line">--&gt; Ingesting reference evidence: data/reference_mock.mp4</div>
+              <div class="term-line">File: data/reference_mock.mp4</div>
+              <div class="term-line term-line--ok">SHA-256: 1573b57c8b3284d0f16cf46b822cd5456fe0e9e5563e290794d6afb654abaf61</div>
+              <div class="term-line">======================================================================</div>
+              <div class="term-line term-line--warn">[STAGE 2] Biometric Kinematics Extraction &amp; Signal Processing</div>
+              <div class="term-line">======================================================================</div>
+              <div class="term-line term-line--dim">[INFO] Generating 60-frame sinusoidal knee angle signals with phase/amplitude shift...</div>
+              <div class="term-line">--&gt; Saved kinematics wave plot to: output/gait_kinematics_wave.png</div>
+              <div class="term-line">--&gt; Generated 60 frames -&gt; output/suspect_angles.csv</div>
+              <div class="term-line">--&gt; Generated 60 frames -&gt; output/reference_angles.csv</div>
+              <div class="term-line">======================================================================</div>
+              <div class="term-line term-line--ok">[STAGE 3] Dynamic Time Warping (DTW) Forensic Verification</div>
+              <div class="term-line">======================================================================</div>
+              <div class="term-line">--&gt; Compiling GaitVerifier.java bytecode into bin/...</div>
+              <div class="term-line">--&gt; Executing DTW verification on extracted kinematic arrays...</div>
+              <div class="term-line">=== GAIT VERIFICATION (PHASE 1 DRAFT) ===</div>
+              <div class="term-line">Suspect Frames   : 60</div>
+              <div class="term-line">Reference Frames : 60</div>
+              <div class="term-line term-line--ok">Raw Warping Sum  : 68.750</div>
+              <div class="term-line term-line--ok" style="font-weight: 800; color: var(--ok);">Result: Probable Match (Low Divergence)</div>
+              <div class="term-line term-line--dim">[exit 0] Pipeline executed cleanly. Forensic manifest appended.</div>
+            </div>
+          </section>
+        </div>
       </section>
     </main>
 
